@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import '../styles/AddQuestion.css';
 
 const AddQuestion = () => {
@@ -42,45 +43,71 @@ const AddQuestion = () => {
     };
 
     return (
-        <div className="add-question">
-            <h2>Add a New Question</h2>
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Question Text:</label>
-                    <input
-                        type="text"
-                        value={questionText}
-                        onChange={(e) => setQuestionText(e.target.value)}
-                        required
-                    />
-                </div>
-                <div>
-                    <label>Solution Link:</label>
-                    <input
-                        type="url"
-                        value={solutionLink}
-                        onChange={(e) => setSolutionLink(e.target.value)}
-                        required
-                    />
-                </div>
-                <div>
-                    <label>Description:</label>
-                    <textarea
-                        value={description}
-                        onChange={(e) => setDescription(e.target.value)}
-                        required
-                    />
-                </div>
-                <div>
-                    <label>User Code:</label>
-                    <textarea
-                        value={userCode}
-                        onChange={(e) => setUserCode(e.target.value)}
-                    />
-                </div>
-                <button type="submit">Add Question</button>
-            </form>
-        </div>
+        <Container className="add-question-container">
+            <h2 className="text-center mb-4">Add a New Question</h2>
+            <Form onSubmit={handleSubmit}>
+                <Row className="mb-3">
+                    <Col>
+                        <Form.Group controlId="questionText">
+                            <Form.Label>Question Text:</Form.Label>
+                            <Form.Control
+                                type="text"
+                                value={questionText}
+                                onChange={(e) => setQuestionText(e.target.value)}
+                                required
+                                placeholder="Enter the question text"
+                            />
+                        </Form.Group>
+                    </Col>
+                </Row>
+                <Row className="mb-3">
+                    <Col>
+                        <Form.Group controlId="solutionLink">
+                            <Form.Label>Solution Link:</Form.Label>
+                            <Form.Control
+                                type="url"
+                                value={solutionLink}
+                                onChange={(e) => setSolutionLink(e.target.value)}
+                                required
+                                placeholder="Enter solution link"
+                            />
+                        </Form.Group>
+                    </Col>
+                </Row>
+                <Row className="mb-3">
+                    <Col>
+                        <Form.Group controlId="description">
+                            <Form.Label>Description:</Form.Label>
+                            <Form.Control
+                                as="textarea"
+                                value={description}
+                                onChange={(e) => setDescription(e.target.value)}
+                                required
+                                rows={3}
+                                placeholder="Provide a brief description"
+                            />
+                        </Form.Group>
+                    </Col>
+                </Row>
+                <Row className="mb-3">
+                    <Col>
+                        <Form.Group controlId="userCode">
+                            <Form.Label>User Code:</Form.Label>
+                            <Form.Control
+                                as="textarea"
+                                value={userCode}
+                                onChange={(e) => setUserCode(e.target.value)}
+                                rows={3}
+                                placeholder="Optional: Add solution code"
+                            />
+                        </Form.Group>
+                    </Col>
+                </Row>
+                <Button variant="primary" type="submit" className="w-100">
+                    Add Question
+                </Button>
+            </Form>
+        </Container>
     );
 };
 

@@ -11,23 +11,27 @@
     padding: 8px;
     border-radius: 25px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
+    width: 100%; /* Allow the form to take up the available space */
+    max-width: 800px; /* Set a maximum width for large screens */
 }
 
+/* Input field */
 .search-bar input[type="text"] {
-    flex: 1;
+    flex-grow: 1; /* Makes the input field take up more space */
     padding: 10px 15px;
     font-size: 16px;
     border: none;
     border-radius: 25px;
     outline: none;
+    min-width: 0; /* Prevents the input field from shrinking too much */
 }
 
+/* Placeholder styling */
 .search-bar input[type="text"]::placeholder {
     color: #aaa;
 }
 
+/* Button styling */
 .search-bar button {
     background-color: #0078ff;
     color: white;
@@ -37,17 +41,33 @@
     border-radius: 25px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-left: 10px; /* Adds space between input field and button */
+    white-space: nowrap; /* Ensures button text doesn't break */
 }
 
+/* Hover state for the button */
 .search-bar button:hover {
     background-color: #005bb5;
 }
 
+/* Active state for the button */
 .search-bar button:active {
     transform: scale(0.98);
 }
 
+/* Disabled state for the button */
 .search-bar button:disabled {
     background-color: #cccccc;
     cursor: not-allowed;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 576px) {
+    .search-bar {
+        margin: 15px 10px;
+    }
+
+    .search-bar form {
+        min-width: auto; /* Allow the form to resize on smaller screens */
+    }
 }

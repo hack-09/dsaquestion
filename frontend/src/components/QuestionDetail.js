@@ -10,7 +10,7 @@ const QuestionDetail = () => {
     useEffect(() => {
         const fetchQuestion = async () => {
             try {
-                const response = await fetch(`${process.env.API_CALL}/api/questions/${id}`);
+                const response = await fetch(`${process.env.REACT_APP_API_CALL}/api/questions/${id}`);
                 const data = await response.json();
                 setQuestion(data);
             } catch (error) {

@@ -18,7 +18,8 @@ const AddQuestion = () => {
         };
 
         try {
-            const response = await fetch(`${process.env.API_CALL}/api/questions`, {
+            console.log(`${process.env.REACT_APP_API_CALL}`);
+            const response = await fetch(`${process.env.REACT_APP_API_CALL}/api/questions`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

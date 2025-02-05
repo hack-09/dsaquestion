@@ -14,7 +14,8 @@ const QuestionList = () => {
     useEffect(() => {
         const fetchQuestions = async () => {
             try {
-                const response = await axios.get(`${process.env.API_CALL}/api/questions`);
+                console.log(`URL IS : ${process.env.REACT_APP_API_CALL}`);
+                const response = await axios.get(`${process.env.REACT_APP_API_CALL}/api/questions`);
                 setQuestions(response.data || []);
             } catch (error) {
                 console.error('Error fetching questions:', error);
